@@ -1,6 +1,6 @@
 package exercici4;
 
-public class Futbol extends News implements NewsPrice, NewsPoints {
+public class Futbol extends News{
 	
 	private String competition;
 	private String club;

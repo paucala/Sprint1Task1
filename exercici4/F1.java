@@ -1,6 +1,6 @@
 package exercici4;
 
-public class F1 extends News implements NewsPrice, NewsPoints {
+public class F1 extends News{
 	
 	private String team;
 
