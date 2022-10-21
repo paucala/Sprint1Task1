@@ -18,10 +18,11 @@ Demostra com invocar el mètode estàtic i el no estàtic des del main() de la c
 	Cotxe cotxe1 = new Cotxe("F5", 1200);
 	System.out.println(cotxe1.getDescription());
 	Cotxe cotxe2 = new Cotxe("F4", 1500);
+	System.out.println(Cotxe.frenar());
 	System.out.println(cotxe1.getDescription());
 	System.out.println(cotxe2.getDescription());
-	System.out.println(Cotxe.frenar());
 	System.out.println(cotxe1.accelerar());
+	
 
 	}
 

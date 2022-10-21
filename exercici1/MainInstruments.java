@@ -17,15 +17,15 @@ Demostra que la cï¿½rrega pot ser provocada per la creaciï¿½ de la primera instï
 
 Cerca informaciï¿½ sobre els blocs d'inicialitzaciï¿½ i blocs estï¿½tics en Java.*/
 		Corda x = new Corda("violi", 230);
-		System.out.println(x.getDescription());
-		Vent y = new Vent("trombï¿½", 150);
-		System.out.println(y.getDescription());
+		System.out.println(x.tocar());
+		Vent y = new Vent("trombÃ³", 150);
+		System.out.println(y.tocar());
 		Percussio z = new Percussio("bateria", 300);
-		System.out.println(z.getDescription());
-		Corda w = new Corda("viola", 180);
-		System.out.println(w.getDescription());
+		System.out.println(z.tocar());
+		Corda w = new Corda();
+		System.out.println(w.tocar());
 		Percussio e = new Percussio("bateria", 300);
-		System.out.println(e.getDescription());
+		System.out.println(e.tocar());
 	}
 	
 	

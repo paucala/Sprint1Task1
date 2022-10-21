@@ -1,8 +1,7 @@
 package exercici4;
 
-public class News {
-	/*  Les notícies han de tenir un titular, un text, una puntuació i un preu. 
-	 * En el moment de crear-se, el text ha d’estar buit.*/
+abstract class News {
+	/*  Classe abstracta ja que no volem que és pugui crear una noticia de la superclasse (només de les subclasses*/
 	
 	private String head;
 	private String body;
@@ -37,12 +36,10 @@ public class News {
 	public int getPrice() {
 		return price;
 	}
-	public int calculateNewsPoints() {
-		return points;
-	}
-	public int calculateNewsPrice() {
-		return price;
-	}
+	abstract int calculateNewsPoints();
+	
+	abstract int calculateNewsPrice();
+	
 }
 	
 

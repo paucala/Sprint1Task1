@@ -1,6 +1,6 @@
 package exercici4;
 
-public class Tenis extends News implements NewsPrice, NewsPoints {
+public class Tenis extends News{
 		
 	private String competition;
 	private String player1;

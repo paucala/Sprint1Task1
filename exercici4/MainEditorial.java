@@ -8,21 +8,6 @@ public class MainEditorial {
 	static ArrayList<Writer> writers = new ArrayList<Writer>();
 
 	public static void main(String[] args) {
-		/* A la classe principal s’ha de fer un menú amb les següents opcions:
-
-1.- Introduir redactor.
-
-2.- Eliminar redactor.
-
-3.- Introduir notícia a un redactor.
-
-4.- Eliminar notícia (ha de demanar redactor i titular de la notícia).
-
-5.- Mostrar totes les notícies per redactor.
-
-6.- Calcular puntuació de la notícia.
-
-7.- Calcular preu-notícia. */
 	Scanner entry =	new Scanner (System.in);
 	String name = "", dni = "", head = "", competition = "", club = "", player = "", player1 = "", player2 = "", team = "";
 	int op = 0, x = 0, y = 0;
@@ -39,21 +24,15 @@ public class MainEditorial {
 				+ "0. Sortir");
 		op = entry.nextInt();
 		entry.nextLine();
-		while (op < 0 || op > 7) {
-			System.out.println("La opció escollida no existeix, selecciona una altre opció: ");
-			op = entry.nextInt();
-			entry.nextLine();
-	}
-			
-			
+					
 	switch (op) {
 			case 1:
 				System.out.println("Indica el nom del redactor");
 				name = entry.nextLine();
 				System.out.println("Indica el dni del redactor");
 				dni = entry.nextLine();
-				Writer writer = new Writer(name, dni);
-				writers.add(writer);
+				addWriter(name, dni);			
+				
 				break;
 			case 2:
 				System.out.println("Indica el nom del redacotr que vols eliminar");
@@ -64,8 +43,7 @@ public class MainEditorial {
 					name = entry.nextLine();
 					x = searchWriter(name, x);
 				}
-				writers.remove(x);
-				System.out.println("Redactor eliminat");
+				deleteWriter(name, x);
 				break;
 			case 3:
 				System.out.println("Indica el nom del redacotr al que vols afegir una noticia");
@@ -84,11 +62,7 @@ public class MainEditorial {
 							+ "5. Motociclisme");
 						op = entry.nextInt();
 						entry.nextLine();
-						while(op < 0 || op > 5) {
-							System.out.println("La opció escollida no existeix, selecciona una altre opció: ");
-							op = entry.nextInt();
-							entry.nextLine();
-				}
+						
 				switch(op) {				
 					case 1:
 						System.out.println("Escriu el titular");
@@ -139,7 +113,11 @@ public class MainEditorial {
 						team = entry.nextLine();
 						Motorcicle motorcicle = new Motorcicle(head, team);
 						writers.get(x).getNews().add(motorcicle);
-						break;	
+						break;
+					default:
+						System.out.println("La opció escollida no existeix, selecciona una altre opció: ");
+						op = entry.nextInt();
+						entry.nextLine();
 				}
 				System.out.println("Noticia afegida");
 				break;
@@ -160,9 +138,7 @@ public class MainEditorial {
 					head = entry.nextLine();
 					y = searchNews(head, x, y);
 				}
-				writers.get(x).getNews().remove(y);
-
-				System.out.println("Noticia eliminat");
+				deleteNews(name, head, x, y);
 				break;
 			case 5:
 				System.out.println("Indica el nom del redactor");
@@ -213,20 +189,23 @@ public class MainEditorial {
 				}
 				System.out.println(writers.get(x).getNews().get(y).calculateNewsPrice());
 				break;
+			default:
+				System.out.println("La opció escollida no existeix, selecciona una altre opció: ");
+				op = entry.nextInt();
+				entry.nextLine();
+				break;
 		}
 	} while (op != 0);
 
 	}
 	public static int searchWriter (String name, int x) {
 		x = 0;
-		int i = 0;
 		boolean found = false;
-		while (i < writers.size() && found == false) {
+		while (x < writers.size() && found == false) {
 			if (name.equalsIgnoreCase(writers.get(x).getName())) {
 				found = true;
 			} else {
 				x++;
-				i++;
 			}
 		}
 		if (found == true) {
@@ -237,14 +216,12 @@ public class MainEditorial {
 	}
 		public static int searchNews (String head, int y, int x) {
 			y = 0;
-			int i = 0;
 			boolean found = false;
-			while (i < writers.get(x).getNews().size() && found == false) {
+			while (y < writers.get(x).getNews().size() && found == false) {
 				if (writers.get(x).getNews().get(y).getHead().equalsIgnoreCase(head)) {
 					found = true;
 				} else {
 					y++;
-					i++;
 				}
 			}
 			if (found == true) {
@@ -252,6 +229,18 @@ public class MainEditorial {
 			} else {
 				return y = -1;
 			}
+		}
+		public static void addWriter(String name, String dni) {
+			Writer writer = new Writer(name, dni);
+			writers.add(writer);
+		}
+		public static void deleteWriter(String name, int x) {
+			writers.remove(x);
+			System.out.println("Redactor eliminat");
+		}
+		public static void deleteNews(String name, String head, int x, int y) {
+			writers.get(x).getNews().remove(y);
+			System.out.println("Noticia eliminat");
 		}
 
 }

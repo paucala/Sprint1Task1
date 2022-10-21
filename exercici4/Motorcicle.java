@@ -1,6 +1,6 @@
 package exercici4;
 
-public class Motorcicle extends News implements NewsPrice, NewsPoints {
+public class Motorcicle extends News{
 	
 	private String team;
 

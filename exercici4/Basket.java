@@ -1,6 +1,6 @@
 package exercici4;
 
-public class Basket extends News implements NewsPrice, NewsPoints {
+public class Basket extends News{
 		
 	private String competition;
 	private String club;

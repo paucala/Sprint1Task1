@@ -19,6 +19,7 @@ i el mètode alarma() ha de mostrar: “Està sonant l’alarma”.
 Des del main() de l’aplicació, crea un objecte Smartphone i crida als mètodes anteriors. */
 		
 		Smartphone phone1 = new Smartphone ("Samsung", "J4");
+		System.out.println(phone1.call("689495712"));
 		System.out.println(phone1.photografie());
 		System.out.println(phone1.alarm());
 

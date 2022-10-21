@@ -2,8 +2,12 @@ package exercici1;
 
 public abstract class Instrument {
 	
+	// El primer metode només s'invocara una vegada per ser static i el segon tantes vegades com es generi un objecte
 	static {
-	System.out.println("Benvingut a la orquestra");
+		System.out.println("Benvinguts");
+	}
+	{
+		System.out.println("Un altre intrument");
 	}
 	
 	private String name;
@@ -13,7 +17,10 @@ public abstract class Instrument {
 		this.name = name;
 		this.price = price;
 	}
-
+	public Instrument() {
+		
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -30,6 +37,6 @@ public abstract class Instrument {
 		this.price = price;
 	}
 	
-	abstract String getDescription();
+	abstract String tocar();
 
 }
